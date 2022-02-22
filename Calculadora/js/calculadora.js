@@ -74,7 +74,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Reseteamos todos los valores op1, op2 y op
         // display.value -= display.value; 
         console.log(display.value);
-        display.value.tostring.slice(0,-1);
+        display.value = display.value.slice(0,-1);
+        
+        
         
         console.log(num);
         
