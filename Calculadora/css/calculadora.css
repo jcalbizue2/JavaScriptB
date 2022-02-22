@@ -1,0 +1,50 @@
+#calculadora {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#display {
+    grid-column-end: span 4;
+}
+.resetear{
+    grid-column-end: span 2; 
+}
+
+
+.numero {
+    background-color: #4CAF50; /* Green */
+    border-style: solid;
+    color: white;
+    border-color: white;
+    font-size: xx-large;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 10px;
+    
+
+  }
+
+  .operacion, .igual, .resetear, .resetearnumero, .corregir{
+    background-color: #09530b; /* Green */
+    border-style: solid;
+    color: white;
+    border-color: white;
+    font-size: xx-large;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 10px;
+    
+
+  }
+
+  #display{
+      font-size: xx-large;
+      border-style: solid;
+      border-radius: 10px;
+      text-align: end;
+      margin-bottom: 10px;
+      background-color: #09530b;
+      color: white;
+      font-weight: bold;
+      padding: 0.5em;
+  }
