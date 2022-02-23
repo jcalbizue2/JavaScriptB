@@ -49,11 +49,12 @@
 
   }
 
-  #display{
-      font-size: xx-large;
+  #respuesta{
+    grid-column-end: span 2;
+    font-size: medium;
       border-style: solid;
       border-radius: 10px;
-      text-align: end;
+      text-align: center;
       margin-bottom: 10px;
       background-color: #09530b;
       color: white;
