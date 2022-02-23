@@ -1,0 +1,62 @@
+#trabajo{
+    display: flex;
+    justify-content: center;
+}
+#juego {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 40%;
+
+
+    
+}
+
+#instruccion {
+    grid-column-end: span 2;
+    font-size: x-large;
+    font-weight: bold;
+    color: #09530b;
+    margin-bottom: 1em;
+}
+
+
+
+#numero {
+    background-color: #4CAF50; /* Green */
+    border-style: solid;
+    color: rgb(3, 37, 16);
+    border-color: white;
+    font-size: large;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 10px;
+    text-align: end;
+
+  }
+
+
+
+  #probar{
+    background-color: #09530b; /* Green */
+    border-style: solid;
+    color: white;
+    border-color: white;
+    font-size: large;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 10px;
+    
+
+  }
+
+  #display{
+      font-size: xx-large;
+      border-style: solid;
+      border-radius: 10px;
+      text-align: end;
+      margin-bottom: 10px;
+      background-color: #09530b;
+      color: white;
+      font-weight: bold;
+      padding: 0.5em;
+  }
