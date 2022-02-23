@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const display = document.getElementById('display');
     const resetear = document.querySelector('.resetear');
     const corregir = document.querySelector('.corregir');
+    const resetearnumero = document.querySelector('.resetearnumero');
 
     console.log(numeros, operaciones, igual, display);
 
@@ -64,21 +65,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         console.log(op1, op, op2);
 
-        // Ejecutamos la operación como un texto que se evalúa y devolvemos el resultado
-        // en el display
+        // Se pone el display a cero
         display.value = 0;
     })
 
        // Cuando se pulse al botón de corregir
        corregir.addEventListener('click', function() {
-        // Reseteamos todos los valores op1, op2 y op
-        // display.value -= display.value; 
-        console.log(display.value);
+        // Eliminamos el último numero que se ha añadido 
         display.value = display.value.slice(0,-1);
         
-        
-        
-        console.log(num);
+    })
+
+       // Cuando se pulse al botón de resetearnumero
+       resetearnumero.addEventListener('click', function() {
+        // Se pone el display a cero 
+        display.value = 0;
         
     })
 });

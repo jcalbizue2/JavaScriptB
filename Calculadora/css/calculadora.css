@@ -1,6 +1,13 @@
+#trabajo{
+    display: flex;
+    justify-content: center;
+}
 #calculadora {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 40%;
+
+    
 }
 
 #display {
