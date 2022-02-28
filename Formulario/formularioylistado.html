@@ -31,29 +31,38 @@
     </table>
 
     <form id="formulario" class="needs-validation" novalidate>
+        <div class="position-relative">
         <div class="row mb-3">
             <label for="id" class="col-sm-1 col-form-label">Id</label>
             <div class="col-sm-3">
                 <input type="number" class="form-control" id="id" readonly>
             </div>
         </div>
+    </div>
 
+    <div class="position-relative">
         <div class="row mb-3">
             <label for="nombre" class="col-sm-1 col-form-label">Nombre: </label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" id="nombre" required>
             </div>
             <div class="valid-tooltip">
-                Looks good!
+                Nombre correcto!
             </div>
+            <div class="invalid-tooltip">
+                Por favor introduzcaun nombre.
+              </div>
+            </div>
+            <div class="position-relative">
             <label for="apellidos" class="col-sm-1 col-form-label">Apellido: </label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" id="apellido" required>
             </div>
             <div class="valid-tooltip">
-                Looks good!
-              </div>
+                Apellido correcto!
+            </div>
         </div>
+    </div>
 
         <div class="row mb-3">
             <label for="email" class="col-sm-1 col-form-label">Email</label>
@@ -73,6 +82,7 @@
                 <button type="submit" class="btn btn-primary">Aceptar</button>
             </div>
         </div>
+    
     </form>
 
     <!-- <div class="modal fade" data-bs-keyboard="false" data-bs-backdrop="static" id="estasSeguro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
