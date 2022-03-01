@@ -1,7 +1,7 @@
 'use strict';
 
 const url = 'http://localhost:3000/alumnos/';
-let listado, id, nombre, apellidos, email, password, formulario, estasSeguro;
+let listado, id, nombre, apellido, email, password, formulario, estasSeguro;
 
 document.addEventListener('DOMContentLoaded', async function () {
     // estasSeguro = document.getElementById('estasSeguro');
@@ -10,9 +10,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     formulario = document.getElementById('formulario');
 
-    // id = document.getElementById('id');
-    // email = document.getElementById('email');
-    // password = document.getElementById('password');
+    id = document.getElementById('id');
+    nombre = document.getElementById('nombre');
+    apellido = document.getElementById('apellido');
+    email = document.getElementById('email');
+    password = document.getElementById('password');
 
     formulario.addEventListener('submit', aceptar);
 
@@ -21,51 +23,62 @@ document.addEventListener('DOMContentLoaded', async function () {
     listar();
 });
 
-// async function aceptar(e) {
-//     e.preventDefault();
+async function aceptar(e) {
+    e.preventDefault();
 
-//     let metodo;
+    if (!formulario.checkValidity()) {
+        e.preventDefault()
+        e.stopPropagation()
+      } else {
 
-//     const usuario = { email: email.value, password: password.value };
+        // formulario.classList.add('was-validated');
+        let metodo;
 
-//     if (id.value) {
-//         usuario.id = id.value;
-//         metodo = 'PUT';
-//     } else {
-//         metodo = 'POST';
-//     }
+        const alumno = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value };
 
-//     console.log(usuario);
-
-//     const respuesta = await fetch(url + id.value, {
-//         method: metodo,
-//         body: JSON.stringify(usuario),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-
-//     console.log(respuesta);
-
-//     id.value = '';
-//     email.value = '';
-//     password.value = '';
-
-//     listar();
-// }
-
-
-async function aceptar(event) {
-       
-    
-        if (!formulario.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
+        if (id.value) {
+            alumno.id = id.value;
+            metodo = 'PUT';
+        } else {
+            metodo = 'POST';
         }
 
-        formulario.classList.add('was-validated')
+        console.log(alumno);
+
+        const respuesta = await fetch(url + id.value, {
+            method: metodo,
+            body: JSON.stringify(alumno),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        console.log(respuesta);
+
+        id.value = '';
+        nombre.value = '';
+        apellido.value = '';
+        email.value = '';
+        password.value = '';
+
+        listar();
+};
+
+    formulario.classList.add('was-validated');
+}
+
+
+// async function aceptar(event) {
+       
+    
+//         if (!formulario.checkValidity()) {
+//           event.preventDefault()
+//           event.stopPropagation()
+//         }
+
+//         formulario.classList.add('was-validated')
       
-    }
+//     }
 
 
 
@@ -84,7 +97,7 @@ async function listar() {
         tr.innerHTML = `
             <th>${alumno.id}</th>
             <td>${alumno.nombre}</td>
-            <td>${alumno.apellidos}</td>
+            <td>${alumno.apellido}</td>
             <td>${alumno.email}</td>
             <td> 
                 <a class="btn btn-primary" href="javascript:editar(${alumno.id})">Editar</a>
