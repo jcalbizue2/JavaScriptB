@@ -26,12 +26,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 async function aceptar(e) {
     e.preventDefault();
 
+    formulario.classList.add('was-validated');
     if (!formulario.checkValidity()) {
-        e.preventDefault()
-        e.stopPropagation()
-      } else {
+        return;
+      } 
 
-        // formulario.classList.add('was-validated');
         let metodo;
 
         const alumno = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value };
@@ -61,25 +60,10 @@ async function aceptar(e) {
         email.value = '';
         password.value = '';
 
+        formulario.classList.remove('was-validated');
+        
         listar();
-};
-
-    formulario.classList.add('was-validated');
-}
-
-
-// async function aceptar(event) {
-       
-    
-//         if (!formulario.checkValidity()) {
-//           event.preventDefault()
-//           event.stopPropagation()
-//         }
-
-//         formulario.classList.add('was-validated')
-      
-//     }
-
+    }
 
 
 async function listar() {
@@ -101,40 +85,45 @@ async function listar() {
             <td>${alumno.email}</td>
             <td> 
                 <a class="btn btn-primary" href="javascript:editar(${alumno.id})">Editar</a>
-                <a class="btn btn-danger" data-id="${alumno.id}" data-bs-toggle="modal" data-bs-target="#estasSeguro" href="javascript:borrar(${alumno.id})">Borrar</a>
+                <a class="btn btn-danger" href="javascript:borrar(${alumno.id})">Borrar</a>
+
             </td>`;
         listado.appendChild(tr);
     });
 }
 
-// async function editar(idSeleccionado) {
-//     console.log(idSeleccionado);
+async function editar(idSeleccionado) {
+    console.log(idSeleccionado);
 
-//     const respuesta = await fetch(url + idSeleccionado);
-//     const usuario = await respuesta.json();
+    const respuesta = await fetch(url + idSeleccionado);
+    const alumno = await respuesta.json();
 
-//     id.value = usuario.id;
-//     email.value = usuario.email;
-//     password.value = usuario.password;
-// }
+    id.value = alumno.id;
+    nombre.value = alumno.nombre;
+    apellido.value = alumno.apellido;
+    email.value = alumno.email;
+    password.value = alumno.password;
+}
 
-// async function borrar(id) {
-//     console.log(id);
+async function borrar(id) {
+    console.log(id);
 
-//     // if(!confirm(`¿Estás seguro de que quieres borrar el registro id=${id}?`)) {
-//     //     return;
-//     // }
+    if(!confirm(`¿Estás seguro de que quieres borrar el registro id=${id}?`)) {
+        return;
+    }
 
-//     const respuesta = await fetch(url + id, { method: 'DELETE' });
+    const respuesta = await fetch(url + id, { method: 'DELETE' });
 
-//     console.log(respuesta);
+    console.log(respuesta);
 
-//     const modal = bootstrap.Modal.getInstance(estasSeguro);
+    // const modal = bootstrap.Modal.getInstance(estasSeguro);
 
-//     modal.hide();
+    // modal.hide();
 
-//     listar();
-// }
+    listar();
+}
+
+
 // function activarModal() {
 //     estasSeguro.addEventListener('show.bs.modal', function (event) {
 //         console.log(event);
