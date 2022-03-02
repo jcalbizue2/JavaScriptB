@@ -34,8 +34,8 @@ $(function () {
     var alumno = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value };
 
     var id = +$('#id').val();
-
-
+    id='';
+    console.log(id);
         if (id) {
             alumno.id = id;
             metodo = 'PUT';

@@ -48,6 +48,20 @@
       "email": "trytr@gdfgfd",
       "password": "32432534543fA&",
       "id": 10
+    },
+    {
+      "nombre": "nuevo",
+      "apellido": "fghfgh",
+      "email": "juan.carlos.albizu@gmail.com",
+      "password": "fdg5654F%%",
+      "id": 11
+    },
+    {
+      "nombre": "juanito",
+      "apellido": "martin",
+      "email": "trytr@gdfgfd",
+      "password": "gfdh5675K%",
+      "id": 12
     }
   ]
 }
