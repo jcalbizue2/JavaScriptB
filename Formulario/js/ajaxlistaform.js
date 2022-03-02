@@ -1,42 +1,43 @@
 'use strict';
 
 const url = 'http://localhost:3000/alumnos/';
-let listado, id, nombre, apellido, email, password, formulario, estasSeguro;
 
-document.addEventListener('DOMContentLoaded', async function () {
-    estasSeguro = document.getElementById('estasSeguro');
+var $formulario;
 
-    listado = document.querySelector('#listado tbody');
+// let listado, id, nombre, apellido, email, password, formulario, estasSeguro;
 
-    formulario = document.getElementById('formulario');
+$(function () {
 
-    id = document.getElementById('id');
-    nombre = document.getElementById('nombre');
-    apellido = document.getElementById('apellido');
-    email = document.getElementById('email');
-    password = document.getElementById('password');
+    $formulario = $('#formulario');
+    
+    $formulario.on('submit', aceptar);
 
-    formulario.addEventListener('submit', aceptar);
 
     activarModal();
 
     listar();
+
 });
 
-async function aceptar(e) {
+
+ function aceptar(e) {
     e.preventDefault();
 
-    formulario.classList.add('was-validated');
-    if (!formulario.checkValidity()) {
+    $formulario.addClass('was-validated');
+
+    if (!$formulario[0].checkValidity()) {
         return;
-      } 
+    }
 
-        let metodo;
+    var metodo;
 
-        const alumno = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value };
+    var alumno = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value };
 
-        if (id.value) {
-            alumno.id = id.value;
+    var id = +$('#id').val();
+
+
+        if (id) {
+            alumno.id = id;
             metodo = 'PUT';
         } else {
             metodo = 'POST';
@@ -44,99 +45,94 @@ async function aceptar(e) {
 
         console.log(alumno);
 
-        const respuesta = await fetch(url + id.value, {
+
+        $.ajax({
+            url: url + id,
             method: metodo,
-            body: JSON.stringify(alumno),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            data: alumno
+        }).then(function (datos, estado, objeto) {
+            console.log(datos, estado, objeto);
+    
+            $('#id, #email, #password, #nombre, #apellido').val('');
+            $formulario.removeClass('was-validated');
+    
+            listar();
         });
-
-        console.log(respuesta);
-
-        id.value = '';
-        nombre.value = '';
-        apellido.value = '';
-        email.value = '';
-        password.value = '';
-
-        formulario.classList.remove('was-validated');
-        
-        listar();
     }
 
 
-async function listar() {
-    const respuesta = await fetch(url);
-    const alumnos = await respuesta.json();
+function listar() {
 
-    console.log(alumnos);
+    $.getJSON(url, function (alumnos) {
+        console.log(alumnos);
 
-    listado.innerHTML = '';
+        $('#listado tbody').empty();
 
-    let tr;
+        $(alumnos).each(function () {
+            $('<tr>' +
+                '<th>' + this.id + '</th>' +
+                '<td>' + this.nombre + '</td>' +
+                '<td>' + this.apellido + '</td>' +
+                '<td>' + this.email + '</td>' +
+                '<td>' +
+                '    <a class="btn btn-primary" href="javascript:editar(' + this.id + ')">Editar</a>' +
+                '    <a class="btn btn-danger" data-id="' + this.id + '" data-bs-toggle="modal" data-bs-target="#estasSeguro" href="javascript:borrar(' + this.id + ')">Borrar</a>' +
+                '</td>' +
+                '</tr>').appendTo('#listado tbody');
+        });
 
-    alumnos.forEach(function (alumno) {
-        tr = document.createElement('tr');
-        tr.innerHTML = `
-            <th>${alumno.id}</th>
-            <td>${alumno.nombre}</td>
-            <td>${alumno.apellido}</td>
-            <td>${alumno.email}</td>
-            <td> 
-                <a class="btn btn-primary" href="javascript:editar(${alumno.id})">Editar</a>
-                <a class="btn btn-danger" data-id="${alumno.id}" data-bs-toggle="modal" data-bs-target="#estasSeguro" href="javascript:borrar(${alumno.id})">Borrar</a>
-            </td>`;
-        listado.appendChild(tr);
+        $('table').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+            }
+        });
+    });
+
+}
+
+
+function editar(idSeleccionado) {
+    console.log(idSeleccionado);
+
+    $.getJSON(url + idSeleccionado, function (alumno) {
+        $('#id').val(alumno.id);
+        $('#email').val(alumno.email);
+        $('#password').val(alumno.password);
+        $('#nombre').val(alumno.nombre);
+        $('#apellido').val(alumno.apellido);
     });
 }
 
-async function editar(idSeleccionado) {
-    console.log(idSeleccionado);
 
-    const respuesta = await fetch(url + idSeleccionado);
-    const alumno = await respuesta.json();
-
-    id.value = alumno.id;
-    nombre.value = alumno.nombre;
-    apellido.value = alumno.apellido;
-    email.value = alumno.email;
-    password.value = alumno.password;
-}
-
-async function borrar(id) {
+function borrar(id) {
     console.log(id);
 
-    // if(!confirm(`¿Estás seguro de que quieres borrar el registro id=${id}?`)) {
-    //     return;
-    // }
+    $.ajax({
+        url: url + id,
+        method: 'DELETE'
+    }).then(function (datos, estado, objeto) {
+        console.log(datos, estado, objeto);
 
-    const respuesta = await fetch(url + id, { method: 'DELETE' });
+        var modal = bootstrap.Modal.getInstance(estasSeguro);
 
-    console.log(respuesta);
+        modal.hide();
 
-    const modal = bootstrap.Modal.getInstance(estasSeguro);
-
-    modal.hide();
-
-    listar();
+        listar();
+    });
 }
 
 
 function activarModal() {
-    estasSeguro.addEventListener('show.bs.modal', function (event) {
+    $('#estasSeguro').on('show.bs.modal', function (event) {
         console.log(event);
         // Button that triggered the modal
-        const boton = event.relatedTarget
+        var boton = event.relatedTarget;
         // Extract info from data-bs-* attributes
-        const id = boton.getAttribute('data-id')
+        var id = boton.dataset.id; // boton.getAttribute('data-id');
         // Update the modal's content.
-        const cuerpo = estasSeguro.querySelector('.modal-body');
+        $('#estasSeguro .modal-body').text('¿Estás seguro de que quieres borrar el id ' + id + '?');
 
-        cuerpo.innerText = `¿Estás seguro de que quieres borrar el id ${id}?`;
-
-        const aceptar = estasSeguro.querySelector('#modal-aceptar');
-        aceptar.href = boton.href;
+        $('#modal-aceptar').attr('href', boton.href);
     });
-}
+};
 // Example starter JavaScript for disabling form submissions if there are invalid fields
