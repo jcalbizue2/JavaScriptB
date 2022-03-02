@@ -1,13 +1,6 @@
 {
   "alumnos": [
     {
-      "id": 1,
-      "nombre": "alumno1",
-      "apellido": "apellidos1",
-      "email": "alumnos1@gmail.com",
-      "password": "password1"
-    },
-    {
       "id": 2,
       "nombre": "alumno2",
       "apellido": "apellidos2",

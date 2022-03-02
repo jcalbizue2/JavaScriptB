@@ -1,13 +1,6 @@
 {
   "alumnos": [
     {
-      "id": 1,
-      "nombre": "alumno1",
-      "apellido": "apellidos1",
-      "email": "alumnos1@gmail.com",
-      "password": "password1"
-    },
-    {
       "id": 2,
       "nombre": "alumno2",
       "apellido": "apellidos2",
@@ -41,6 +34,13 @@
       "email": "juan.carlos.albizu@gmail.com",
       "password": "",
       "id": 6
+    },
+    {
+      "nombre": "nuevo",
+      "apellido": "fghfgh",
+      "email": "juan.carlos.albizu@gmail.com",
+      "password": "234354354oI&",
+      "id": 9
     },
     {
       "nombre": "juanito",
