@@ -4,7 +4,7 @@ const url = 'http://localhost:3000/alumnos/';
 let listado, id, nombre, apellido, email, password, formulario, estasSeguro;
 
 document.addEventListener('DOMContentLoaded', async function () {
-    // estasSeguro = document.getElementById('estasSeguro');
+    estasSeguro = document.getElementById('estasSeguro');
 
     listado = document.querySelector('#listado tbody');
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     formulario.addEventListener('submit', aceptar);
 
-    // activarModal();
+    activarModal();
 
     listar();
 });
@@ -85,8 +85,7 @@ async function listar() {
             <td>${alumno.email}</td>
             <td> 
                 <a class="btn btn-primary" href="javascript:editar(${alumno.id})">Editar</a>
-                <a class="btn btn-danger" href="javascript:borrar(${alumno.id})">Borrar</a>
-
+                <a class="btn btn-danger" data-id="${alumno.id}" data-bs-toggle="modal" data-bs-target="#estasSeguro" href="javascript:borrar(${alumno.id})">Borrar</a>
             </td>`;
         listado.appendChild(tr);
     });
@@ -108,36 +107,36 @@ async function editar(idSeleccionado) {
 async function borrar(id) {
     console.log(id);
 
-    if(!confirm(`¿Estás seguro de que quieres borrar el registro id=${id}?`)) {
-        return;
-    }
+    // if(!confirm(`¿Estás seguro de que quieres borrar el registro id=${id}?`)) {
+    //     return;
+    // }
 
     const respuesta = await fetch(url + id, { method: 'DELETE' });
 
     console.log(respuesta);
 
-    // const modal = bootstrap.Modal.getInstance(estasSeguro);
+    const modal = bootstrap.Modal.getInstance(estasSeguro);
 
-    // modal.hide();
+    modal.hide();
 
     listar();
 }
 
 
-// function activarModal() {
-//     estasSeguro.addEventListener('show.bs.modal', function (event) {
-//         console.log(event);
-//         // Button that triggered the modal
-//         const boton = event.relatedTarget
-//         // Extract info from data-bs-* attributes
-//         const id = boton.getAttribute('data-id')
-//         // Update the modal's content.
-//         const cuerpo = estasSeguro.querySelector('.modal-body');
+function activarModal() {
+    estasSeguro.addEventListener('show.bs.modal', function (event) {
+        console.log(event);
+        // Button that triggered the modal
+        const boton = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        const id = boton.getAttribute('data-id')
+        // Update the modal's content.
+        const cuerpo = estasSeguro.querySelector('.modal-body');
 
-//         cuerpo.innerText = `¿Estás seguro de que quieres borrar el id ${id}?`;
+        cuerpo.innerText = `¿Estás seguro de que quieres borrar el id ${id}?`;
 
-//         const aceptar = estasSeguro.querySelector('#modal-aceptar');
-//         aceptar.href = boton.href;
-//     });
-// }
+        const aceptar = estasSeguro.querySelector('#modal-aceptar');
+        aceptar.href = boton.href;
+    });
+}
 // Example starter JavaScript for disabling form submissions if there are invalid fields

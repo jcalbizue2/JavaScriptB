@@ -1,0 +1,53 @@
+{
+  "alumnos": [
+    {
+      "id": 1,
+      "nombre": "alumno1",
+      "apellido": "apellidos1",
+      "email": "alumnos1@gmail.com",
+      "password": "password1"
+    },
+    {
+      "id": 2,
+      "nombre": "alumno2",
+      "apellido": "apellidos2",
+      "email": "alumnos2@gmail.com",
+      "password": "password2"
+    },
+    {
+      "id": 3,
+      "nombre": "alumno3",
+      "apellido": "apellidos3",
+      "email": "alumnos3@gmail.com",
+      "password": "password3"
+    },
+    {
+      "id": 4,
+      "nombre": "alumno4",
+      "apellido": "apellidos4",
+      "email": "alumnos4@gmail.com",
+      "password": "password4"
+    },
+    {
+      "nombre": "Juan",
+      "apellido": "Esteban",
+      "email": "juan.carlos.albizu@gmail.com",
+      "password": "1234567yT&",
+      "id": 5
+    },
+    {
+      "nombre": "Juan",
+      "apellido": "Esteban",
+      "email": "juan.carlos.albizu@gmail.com",
+      "password": "",
+      "id": 6
+    },
+    {
+      "nombre": "juanito",
+      "apellido": "martin",
+      "email": "trytr@gdfgfd",
+      "password": "32432534543fA&",
+      "id": 10
+    }
+  ]
+}
