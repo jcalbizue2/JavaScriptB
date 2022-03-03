@@ -58,10 +58,17 @@
     },
     {
       "nombre": "juanito",
-      "apellido": "martin",
+      "apellido": "martinez",
       "email": "trytr@gdfgfd",
       "password": "gfdh5675K%",
       "id": 12
+    },
+    {
+      "nombre": "nuevo",
+      "apellido": "fghfgh",
+      "email": "juan.carlos.albizu@gmail.com",
+      "password": "5345345gfdgdGG&",
+      "id": 13
     }
   ]
 }

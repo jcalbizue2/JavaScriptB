@@ -12,7 +12,7 @@ $(function () {
     
     $formulario.on('submit', aceptar);
 
-
+    
     activarModal();
 
     listar();
@@ -28,13 +28,12 @@ $(function () {
     if (!$formulario[0].checkValidity()) {
         return;
     }
-
     var metodo;
 
     var alumno = { nombre: nombre.value, apellido: apellido.value, email: email.value, password: password.value };
 
-    var id = +$('#id').val();
-    id='';
+
+    var id = $('#id').val();
     console.log(id);
         if (id) {
             alumno.id = id;
@@ -64,7 +63,7 @@ $(function () {
 function listar() {
 
     $.getJSON(url, function (alumnos) {
-        console.log(alumnos);
+        return console.log(alumnos);
 
         $('#listado tbody').empty();
 
