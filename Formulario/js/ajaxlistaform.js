@@ -69,8 +69,7 @@ $(function () {
 function listar() {
 
     return $.getJSON(url, function (alumnos) {
-        console.log('he llegado a llistas')
-        // return console.log(alumnos);
+
 
         $('#listado tbody').empty();
 

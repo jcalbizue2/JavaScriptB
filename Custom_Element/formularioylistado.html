@@ -16,26 +16,27 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="js/jl-input.js"></script>
+    <script src="js/jl-boton.js"></script>
+    <script src="js/jl-modal.js"></script>
+    <script src="js/jl-tabla.js"></script>
     <script src="js/ajaxlistaform.js"></script>
 </head>
 
 <body class="container">
-    <table id="listado" class="table table-hover table-striped table-bordered">
-        <thead class="table-success">
-            <tr>
-                <th>Id</th>
-                <th>nombre</th>
-                <th>Apellidos</th>
-                <th>Email</th>
-                <th>Opciones</th>
-            </tr>
-        </thead>
-        <tbody class="table-info">
+    <jl-tabla jl-id="listado" cabeceras="Id Nombre Apellids Email Opciones"></jl-tabla>
 
-        </tbody>
-    </table>
+    <form id="formulario" novalidate>
+        <jl-input jl-id="id" tipo="number" atributos="readonly"></jl-input>
+        <jl-input jl-id="nombre" tipo="text" atributos="required" error="Es obligatorio poner nombre"></jl-input>
+        <jl-input jl-id="apellidos" tipo="text" atributos="required" error="Es obligatorio poner apellido"></jl-input>
+        <jl-input jl-id="email" tipo="email" atributos="required" error="Es obligatorio poner un email"></jl-input>
+        <jl-input jl-id="password" tipo="password" atributos='required minlength="8"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!·$%&/()]).{8,}$"' error="Es obligatorio proporcionar una contraseña de al menos 8 caracteres, y al menos
+            un dígito, una letra minúscula, una letra mayúscula y un caracter especial entre los siguientes:
+            !·$%&/()"></jl-input>
 
-    <form id="formulario" class="row g-3 needs-validation" novalidate>
+    <!-- <form id="formulario" class="row g-3 needs-validation" novalidate>
         
         <div class="col-md-4 position-relative">
             <label for="id" class="col-sm-1 col-form-label">Id</label>
@@ -84,15 +85,16 @@
             <div class="invalid-tooltip">
                 Por favor introduzca una password.
             </div>
-        </div>
+        </div> -->
 
-        <div class="col-12">
+        <!-- <div class="col-12">
                 <button type="submit" class="btn btn-primary">Aceptar</button>
-        </div>
+        </div> -->
+        <jl-boton texto="Enviar"></jl-boton>
     
     </form>
-
-    <div class="modal fade" data-bs-keyboard="false" data-bs-backdrop="static" id="estasSeguro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <jl-modal jl-id="estasSeguro" titulo="¡Atención!" cuerpo="¿Estás seguro?"></jl-modal>
+    <!-- <div class="modal fade" data-bs-keyboard="false" data-bs-backdrop="static" id="estasSeguro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -108,7 +110,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 
 <script>
