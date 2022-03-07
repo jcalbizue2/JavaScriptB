@@ -15,13 +15,7 @@ $(function () {
     
     activarModal();
 
-    listar().then(function () {
-        $('table').DataTable({
-            language: {
-                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
-            }
-        });
-    });
+    listar();
 
 });
 
@@ -87,7 +81,11 @@ function listar() {
                 '</tr>').appendTo('#listado tbody');
         });
 
-        
+        $('table').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+            }
+        });
     });
 
 }

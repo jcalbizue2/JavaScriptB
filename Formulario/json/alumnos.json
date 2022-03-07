@@ -36,27 +36,6 @@
       "id": 6
     },
     {
-      "nombre": "nuevo",
-      "apellido": "fghfgh",
-      "email": "juan.carlos.albizu@gmail.com",
-      "password": "234354354oI&",
-      "id": 9
-    },
-    {
-      "nombre": "juanito",
-      "apellido": "martin",
-      "email": "trytr@gdfgfd",
-      "password": "32432534543fA&",
-      "id": 10
-    },
-    {
-      "nombre": "nuevo",
-      "apellido": "fghfgh",
-      "email": "juan.carlos.albizu@gmail.com",
-      "password": "fdg5654F%%",
-      "id": 11
-    },
-    {
       "nombre": "juanito",
       "apellido": "martinez",
       "email": "trytr@gdfgfd",
@@ -69,6 +48,13 @@
       "email": "juan.carlos.albizu@gmail.com",
       "password": "5345345gfdgdGG&",
       "id": 13
+    },
+    {
+      "nombre": "fdgd",
+      "apellido": "sdfg",
+      "email": "sdf@ddd",
+      "password": "ghf5654JJ&",
+      "id": 14
     }
   ]
 }
