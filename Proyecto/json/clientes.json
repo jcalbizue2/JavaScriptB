@@ -1,0 +1,13 @@
+{
+  "clientes": [
+    {
+      "id": 2,
+      "dni": "12345678Z",
+      "nombre": "alumno2",
+      "apellidos": "apellidos2",
+      "provincia": 1,
+      "telefono": "66677763",
+      "email": "alumnos2@gmail.com"
+    }
+  ]
+}
