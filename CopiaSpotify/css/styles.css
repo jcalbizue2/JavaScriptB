@@ -1,0 +1,119 @@
+/* Variables */
+:root {
+    --color-fondo-cuadro: rgba(246, 247, 213, 0.65);
+    --color-claro: #f6f7d5;
+    --texto-tamano: 18px;
+    --color-texto: #35360b;
+    --color-fondo: #9ea123;
+    --color-fondo-menu: #7c7c1d;
+    --color-fondo-menu-activo: #aeae2d;
+    --color-numeros: #e4e682;
+    --grosor-borde: 2em;
+  }
+  
+  /* Reseteo */
+* {
+    box-sizing: border-box;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--color-texto);
+  }
+
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--texto-tamano);
+  
+    color: var(--color-texto);
+  }
+
+  /* Grid */
+
+#cabecera {
+    grid-area: cabecera;
+  }
+  
+  #menuprincipal {
+    grid-area: menuprincipal;
+  }
+  
+  #contenido {
+    grid-area: contenido;
+  }
+  
+  #pie {
+    grid-area: pie;
+  }
+
+  #vinculoscompania1{
+      grid-area: vinculoscompania1;
+  }
+
+  #vinculoscompania2{
+    grid-area: vinculoscompania2;
+}
+#vinculoscompania3{
+    grid-area: vinculoscompania3;
+}
+
+#vinculoslegal{
+    grid-area: vinculoslegal;
+}
+
+/* footer{
+    grid-area: footer;
+} */
+  body {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    /* grid-template-rows: 104px auto auto auto; */
+  
+    grid-template-areas:
+      "menuprincipal cabecera"
+      "menuprincipal contenido"
+      "menuprincipal pie";
+  }
+
+  #pie{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      /* grid-template-rows: auto; */
+
+      grid-template-areas:
+      "vinculoscompania1 vinculoscompania2 vinculoscompania3"
+      "vinculoslegal vinculoslegal vinculoslegal";
+  }
+
+  #vinculoslegal ul{
+      display: flex;
+  }
+
+  #opciones ul {
+      display: flex;
+
+  }
+
+  #opciones {
+    padding: 5px 0;
+  }
+
+  ul {
+    text-decoration: none;
+    list-style: none;
+  }
+
+  #opciones a {
+    display: inline-block;
+    /* color: var(--color-claro); */
+    font-weight: bold;
+    padding: 1em;
+    
+  }
+#vinculoscompania nav{
+    display:flex;
+}
+
+#vinculoscompania ul{
+    display: inline-block;
+}

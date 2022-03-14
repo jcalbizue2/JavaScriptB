@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AJAX</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/ajax.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/ajax.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/ajax.js"></script>
-</head>
+  </head>
 
-<body class="container">
+  <body class="container">
     <!-- <table id="listado" class="table table-hover table-striped table-bordered">
         <thead class="table-dark">
             <tr>
@@ -31,81 +36,84 @@
     </table> -->
 
     <form id="formulario" novalidate>
-
-        
-        <div class="row mb-3">
-            <label for="id" class="col-sm-2 col-form-label">Id</label>
-            <div class="col-sm-6">
-                <input type="number" class="form-control" id="id" readonly>
-            </div>
+      <div class="row mb-3">
+        <label for="id" class="col-sm-2 col-form-label">Id</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" id="id" readonly />
         </div>
+      </div>
 
-        <div class="row mb-3">
-            <label for="dni" class="col-sm-2 col-form-label">Dni</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="dni" required minlength="8" pattern="^[XYZ\d]\d{7}[A-Z]$">
-                <div class="invalid-feedback">
-                    Se debe introducir un DNI válido con la letra en mayúsculas
-                </div>
-            </div>
+      <div class="row mb-3">
+        <label for="dni" class="col-sm-2 col-form-label">Dni</label>
+        <div class="col-sm-6">
+          <input
+            type="text"
+            class="form-control"
+            id="dni"
+            required
+            minlength="8"
+            pattern="^[XYZ\d]\d{7}[A-Z]$"
+          />
+          <div class="invalid-feedback">
+            Se debe introducir un DNI válido con la letra en mayúsculas
+          </div>
         </div>
+      </div>
 
-        <div class="row mb-3">
-            <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="nombre"">
-                <div class="invalid-feedback">
-                    Se debe introducir un Nombre válido
-                </div>
-            </div>
+      <div class="row mb-3">
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="nombre"">
+          <div class="invalid-feedback">
+            Se debe introducir un Nombre válido
+          </div>
         </div>
+      </div>
 
-        <div class="row mb-3">
-            <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="apellidos"">
-                <div class="invalid-feedback">
-                    Se debe introducir Apellidos válidos
-                </div>
-            </div>
+      <div class="row mb-3">
+        <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="apellidos"">
+          <div class="invalid-feedback">
+            Se debe introducir Apellidos válidos
+          </div>
         </div>
+      </div>
 
-        <div class="row mb-3">
-            <label for="provincia" class="col-sm-2 col-form-label">Provincia</label>
-            <div class="col-sm-6" id="provincia" >
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccione una provincia</option>
-                    <option value="1">Bizkaia</option>
-                    <option value="2">Gipuzkoa</option>
-                    <option value="3">Araba</option>
-                  </select>
-                <div class="invalid-feedback">
-                    Es obligatorio seleccionar una provincia
-                </div>
-            </div>
+      <div class="row mb-3">
+        <label for="provincia" class="col-sm-2 col-form-label">Provincia</label>
+        <div class="col-sm-6" id="provincia">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Seleccione una provincia</option>
+            <option value="1">Bizkaia</option>
+            <option value="2">Gipuzkoa</option>
+            <option value="3">Araba</option>
+          </select>
+          <div class="invalid-feedback">
+            Es obligatorio seleccionar una provincia
+          </div>
         </div>
+      </div>
 
-        <div class="row mb-3">
-            <label for="telefono" class="col-sm-2 col-form-label">Teléfono</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="apellidos"">
-                <div class="invalid-feedback">
-                    Se debe introducir Apellidos válidos
-                </div>
-            </div>
+      <div class="row mb-3">
+        <label for="telefono" class="col-sm-2 col-form-label">Teléfono</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="apellidos"">
+          <div class="invalid-feedback">
+            Se debe introducir Apellidos válidos
+          </div>
         </div>
+      </div>
 
-        <div class="row mb-3">
-            <label for="email" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-6">
-                <input type="email" class="form-control" id="email" required>
-                <div class="invalid-feedback">
-                    Es obligatorio poner un email
-                </div>
-            </div>
+      <div class="row mb-3">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-6">
+          <input type="email" class="form-control" id="email" required />
+          <div class="invalid-feedback">Es obligatorio poner un email</div>
         </div>
+      </div>
 
-        <!-- <div class="row mb-3">
+      <!-- <div class="row mb-3">
             <label for="password" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
                 <input type="password" class="form-control" id="password" required minlength="8"
@@ -118,32 +126,40 @@
             </div>
         </div> -->
 
-
-        <div class="row mb-3">
-            <div class="offset-sm-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Aceptar</button>
-            </div>
+      <div class="row mb-3">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Aceptar</button>
         </div>
+      </div>
     </form>
 
-    <div class="modal fade" data-bs-keyboard="false" data-bs-backdrop="static" id="estasSeguro" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">¡Atención!</h5>
-                </div>
-                <div class="modal-body">
-                    ¿Estás seguro?
-                </div>
-                <div class="modal-footer">
-                    <a id="modal-aceptar" href="#" class="btn btn-primary">Aceptar</a>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
+    <div
+      class="modal fade"
+      data-bs-keyboard="false"
+      data-bs-backdrop="static"
+      id="estasSeguro"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">¡Atención!</h5>
+          </div>
+          <div class="modal-body">¿Estás seguro?</div>
+          <div class="modal-footer">
+            <a id="modal-aceptar" href="#" class="btn btn-primary">Aceptar</a>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+          </div>
         </div>
+      </div>
     </div>
- 
-</body>
-
+  </body>
 </html>
