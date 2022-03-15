@@ -1,0 +1,17 @@
+.principal {
+  grid-area: principal;
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+}
+
+.principal nav:last-of-type {
+  margin-top: auto;
+}
+
+.principal nav li {
+  list-style: none;
+  padding: 0.25em 0;
+}

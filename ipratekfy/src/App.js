@@ -1,19 +1,18 @@
-import ´Fragment} logo from './logo.svg';
-import './App.css';
 import MenuPrincipal from './MenuPrincipal';
-import MenuSecundarios from './MenuSecundario';
+import MenuSecundario from './MenuSecundario';
 import Contenido from './Contenido';
 import Alerta from './Alerta';
 
+import estilo from './App.module.css';
 
 function App() {
   return (
-    <Fragment>
+    <div class={estilo.contenido}>
       <MenuPrincipal />
-      <MenuSecundarios />
+      <MenuSecundario />
       <Contenido />
       <Alerta />
-    </Fragment>
+    </div>
   );
 }
 

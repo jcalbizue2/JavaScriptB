@@ -1,0 +1,5 @@
+.alerta {
+  grid-area: alerta;
+
+  background-color: var(--color-fondo-alerta);
+}

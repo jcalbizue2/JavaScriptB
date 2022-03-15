@@ -1,0 +1,33 @@
+.contenido {
+  height: 100%;
+}
+
+.contenido div {
+  padding: 1rem;
+}
+
+.contenido {
+  display: grid;
+
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+
+  grid-template-areas: 
+    'principal secundario'
+    'principal contenido'
+    'alerta alerta';
+}
+
+@media (max-width: 500px) {
+  .contenido {
+    grid-template-rows: repeat(3, auto) 1fr;
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      'alerta'
+      'principal'
+      'secundario'
+      'contenido'
+    ;
+  }
+}
