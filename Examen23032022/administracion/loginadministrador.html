@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/action_page.php">
+        <label for="usuarioadministrador">Usuario Administrador:</label>
+        <input type="email" id="usuarioadministrador" name="usuarioadministrador" required><br>
+        <label for="passwordadministrador">Password:</label>
+        <input type="password" id="passwordadministrador" name="passwordadministrador" required minlength="8"
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!·$%&/()]).{8,}$"><br>
+        <br>
+        <input type="submit" value="Alta">
+      </form>
+</body>
+</html>
